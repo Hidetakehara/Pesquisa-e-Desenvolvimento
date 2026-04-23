@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Interactive Page Practice</title>
+  <style>
+
+    h1 {
+      font-family: arial;
+      color: dimgray;
+    }
+
+    .box {
+      width: 160px;
+      height: 40px;
+      margin: 10px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .default { background-color: lightgray; }
+    .blueVioletback { background-color: blueviolet; }
+    .darkCyanback { background-color: darkcyan; }
+    .orangeback { background-color: orange; }
+    .greenback { background-color: green; }
+    .redback { background-color: red; }
+    .yellowback { background-color: yellow; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Interactive Page Practice</h1>
+
+  <div id="div1" class="box default">Here is div 1</div>
+  <div id="div2" class="box default">Here is div 2</div>
+
+  <br>
+
+  <button onclick="changeColor()">Change Color</button>
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="changeColor(), changeText()">Change All</button>
+
+  <script>
+    function changeColor() {
+      var div1 = document.getElementById("div1");
+      var div2 = document.getElementById("div2");
+
+      // Lista de classes de cores disponíveis
+      var colors = ["blueVioletback", "darkCyanback", "orangeback", "greenback", "redback", "yellowback"];
+
+      // Escolhe uma cor aleatória para cada div
+      var randomColor1 = colors[Math.floor(Math.random() * colors.length)];
+      var randomColor2 = colors[Math.floor(Math.random() * colors.length)];
+
+      div1.className = "box " + randomColor1;
+      div2.className = "box " + randomColor2;
+    }
+
+  function changeText() {
+    var div1 = document.getElementById("div1");
+    var div2 = document.getElementById("div2");
+
+    // Lista de textos disponíveis
+    var texts = ["Blue", "Dark Cyan", "Orange", "Green", "Red", "Yellow"];
+
+    // Escolhe um texto aleatório para cada div
+    var randomText1 = texts[Math.floor(Math.random() * texts.length)];
+    var randomText2 = texts[Math.floor(Math.random() * texts.length)];
+
+    div1.innerHTML = randomText1;
+    div2.innerHTML = randomText2;
+  }
+  </script>
+
+</body>
+</html>
