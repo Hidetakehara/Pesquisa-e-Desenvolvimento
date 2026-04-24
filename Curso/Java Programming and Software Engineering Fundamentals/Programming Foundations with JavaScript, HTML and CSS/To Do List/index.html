@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>TO DO List</title>
+
+  <!-- Importa o CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <h1 id="myHeader">TO DO List</h1>
+
+  <hr>
+
+  <!-- ETAPAS 1 e 2 abaixo aqui -->
+  <input type="button" id="addButton" value = "Add Task" onclick = "addTask ()">
+  <input type="text" id="input" placeholder="Enter Task...">
+
+  <ul id="tasks">
+
+    <li>
+
+      <input type="button" class="done" onclick="markDone(this.parentNode)" value="&#x2713;" />
+      <input type="button" class="remove" onclick="remove(this.parentNode)" value="&#x2715;" />
+
+      criar lista de tarefas
+
+    </li>
+
+  </ul>
+
+  <hr>
+
+  <!-- ETAPAS 8 e 9 abaixo aqui -->
+
+  <!-- ETAPA 13 abaixo aqui -->
+
+</body>
+
+</html>

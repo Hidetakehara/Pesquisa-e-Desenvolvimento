@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TO DO List</title>
+  <style>
+    /* remover o recuo dos itens da lista */
+    ul {
+      padding-left: 0;
+    }
+
+    /* remover o marcador tradicional da frente dos itens da lista */
+    li {
+      list-style-type: none;
+      background-color: #eee;
+      border: 1px solid #c3c3c3;
+      padding: 10px 0px 10px 5px;
+    }
+
+    /* botão de concluir */
+    .done {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* marcar a tarefa como concluída */
+    li.finished {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    input[type="text"] {
+      font-size: 18px;
+      width: 94%; /* corrigido de 'largura' para 'width' */
+      padding: 10px;
+    }
+
+    input[type="button"] {
+      font-size: 1.2em;
+      margin: -6px 4px 0px 0px;
+    }
+
+    #addButton {
+      padding: 10px;
+    }
+
+    /* estilo do texto "Sobre" */
+    .aboutcolor {
+      color: blue;
+      font-style: italic;
+    }
+
+    /* estilo da área "Sobre" */
+    #divabout {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="myHeader">TO DO List</h1>
+
+  <!-- ETAPAS 1 e 2 -->
+  <input type="text" id="input" placeholder="Digite uma tarefa" />
+  <input type="button" id="addButton" value="Adicionar" onclick="addTask()" />
+
+  <hr>
+
+  <ul id="tasks">
+    <li>
+      <input type="button" class="done" onclick="markDone(this.parentNode)" value="&#x2713;" />
+      <input type="button" class="remove" onclick="remove(this.parentNode)" value="&#x2715;" />
+      criar lista de tarefas
+    </li>
+  </ul>
+
+  <hr>
+
+  <!-- ETAPAS 8 e 9 -->
+  <input type="button" value="Sobre" onclick="doAbout()" />
+  <input type="button" value="Limpar Sobre" onclick="clearAbout()" />
+
+  <!-- ETAPA 13 -->
+  <div id="divabout"></div>
+
+  <script>
+    function addTask() {
+      var input = document.getElementById("input");
+      var newTask = input.value;
+
+      if (newTask != "") {
+        var item = document.createElement("li");
+        item.innerHTML =
+          '<input type="button" class="done" onclick="markDone(this.parentNode)" value="&#x2713;" /> ' +
+          '<input type="button" class="remove" onclick="remove(this.parentNode)" value="&#x2715;" /> ' +
+          newTask;
+
+        document.getElementById("tasks").appendChild(item);
+
+        // Etapa 4: limpar campo
+        input.value = "";
+      }
+    }
+
+    // marcar como concluída
+    function markDone(item) {
+      item.className = "finished";
+    }
+
+    // remover item
+    function remove(item) {
+      item.remove();
+    }
+
+    // mostrar informações "Sobre"
+    function doAbout() {
+      document.getElementById("divabout").innerHTML =
+        "<p class='aboutcolor'>Aplicativo de Lista de Tarefas - desenvolvido para praticar HTML, CSS e JavaScript.</p>";
+    }
+
+    // limpar informações "Sobre"
+    function clearAbout() {
+      document.getElementById("divabout").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
