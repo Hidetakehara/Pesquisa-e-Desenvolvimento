@@ -18,8 +18,8 @@
   <hr>
 
   <!-- ETAPAS 1 e 2 abaixo aqui -->
-  <input type="button" id="addButton" value = "Add Task" onclick = "addTask ()">
-  <input type="text" id="input" placeholder="Enter Task...">
+  <input type="button" id="addButton" value = "Add Task" onclick = "addTask ()"/>
+  <input type="text" id="input" placeholder="Enter Task..."/>
 
   <ul id="tasks">
 
@@ -27,6 +27,7 @@
 
       <input type="button" class="done" onclick="markDone(this.parentNode)" value="&#x2713;" />
       <input type="button" class="remove" onclick="remove(this.parentNode)" value="&#x2715;" />
+      <input type="button" class="important" onclick="important(this.parentNode)" value="!" />
 
       criar lista de tarefas
 
@@ -37,8 +38,18 @@
   <hr>
 
   <!-- ETAPAS 8 e 9 abaixo aqui -->
+  <div id="divabout"></div>
+
+  <br>
+
+  <input type="button" value = "About" onclick = "doAbout()"/>
+  <input type="button" value = "Clear" onclick = "clearAbout()"/>
+
 
   <!-- ETAPA 13 abaixo aqui -->
+
+<!-- Importa o JS -->
+<script src="script.js"></script>
 
 </body>
 

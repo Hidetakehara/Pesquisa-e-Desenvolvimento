@@ -10,28 +10,35 @@ ul {
 
 li {
    list-style-type: none;
+   font-size: 20px;
    background-color: #eee;
    border: 1px solid #c3c3c3;
    padding: 10px 0px 10px 5px;
+   width: 80%;
 }
 
 
 /* Etapa 5 aqui embaixo */
-
 .done {
+   background-color: lightgreen;
+}
 
+.remove {
+   background-color: lightcoral;
 }
 
 /* marcar a tarefa como concluída */
 /* Passo 6 abaixo aqui */
 
 li.finished {
-
+   color: white;
+   background-color: lightgrey;
+   text-decoration: line-through;
 }
 
 input[type="text"] {
    font-size: 18px;
-   largura: 94%;
+   width: 70%;
    padding: 10px;
 }
 
@@ -47,11 +54,21 @@ input[type="button"] {
 /* Etapa 10 abaixo aqui */
 
 .aboutcolor {
-
+   background-color:yellow;
 }
 
 /* Etapa 12 aqui embaixo */
 
 #divabout {
+   font-size: 20px;
+   padding: 10px 5px 10px 5px;
+   width: 80%;
+   color:blue;
+}
 
+.important {
+  background-color: lightblue;
+}
+li.important {
+  background-color: lightblue;
 }
