@@ -1,0 +1,39 @@
+<!DOCTYPE html>                                             <!-- Define que o documento segue o padrão HTML5.-->
+<html lang="pt-BR">                                         <!-- Indica que o idioma principal da página é português do Brasil.-->          
+
+<head>                                                      
+  <meta charset="UTF-8">                                    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos e caracteres especiais.-->
+  <title>Croma Key</title>                                  <!-- Título da aba do navegador.-->
+  <link rel="stylesheet" href="style.css">                  <!-- Importa o arquivo CSS externo para estilizar a página.-->
+</head>
+
+<body>
+  <h2>Selecione uma imagem para exibir:</h2>                <!-- Cabeçalho com instrução para o usuário.-->
+
+  <!-- Container principal -->
+  <div class="container">
+
+    <!-- Bloco 1 -->
+    <div class="block">
+      <canvas id="canvasFront" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
+      <input type="file" id="fileInput" accept="image/*">
+    </div>
+
+    <!-- Bloco 2 -->
+    <div class="block">
+      <canvas id="canvasBack" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
+      <input type="file" id="fileBack" accept="image/*">
+    </div>
+
+    <!-- Bloco Resultado -->
+    <div class="block">
+      <canvas id="canvasCroma" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
+      <button type="button" id="cromaKey">Aplicar efeito de Croma Key</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

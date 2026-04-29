@@ -1,0 +1,28 @@
+<!DOCTYPE html>                                             <!-- Define que o documento segue o padrão HTML5.-->
+<html lang="pt-BR">                                         <!-- Indica que o idioma principal da página é português do Brasil.-->          
+
+<head>                                                      
+  <meta charset="UTF-8">                                    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos e caracteres especiais.-->
+  <title>Upload e Filtro de Imagem</title>                  <!-- Título da aba do navegador.-->
+  <link rel="stylesheet" href="style.css">                  <!-- Importa o arquivo CSS externo para estilizar a página.-->
+</head>
+
+<body>
+  <h2>Selecione uma imagem para exibir:</h2>                <!-- Cabeçalho com instrução para o usuário.-->
+  
+  <!-- Input para escolher arquivo -->
+  <input type="file" id="fileInput" accept="image/*">
+  
+  <!-- Área onde a imagem será exibida -->
+  <div>
+    <canvas id="canvas" style="max-width:400px; margin-top:20px; border:2px solid #ccc; border-radius:8px;"></canvas>
+  </div>
+
+  <!-- Botão para aplicar filtro -->
+  <br>
+  <button id="makeGray">Aplicar escala de cinza</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
