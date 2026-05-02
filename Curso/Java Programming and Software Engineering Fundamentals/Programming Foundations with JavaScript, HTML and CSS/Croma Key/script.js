@@ -1,46 +1,66 @@
-// Seleciona os elementos do HTML que serão usados
-const fileInput = document.getElementById('fileInput'); // Campo de upload de arquivo
-const canvas = document.getElementById('canvas');       // Área de desenho (canvas)
-const ctx = canvas.getContext('2d');                    // Contexto 2D para manipular pixels
-let img = new Image();                                  // Objeto de imagem para carregar a foto escolhida
+var fgImage = null;
+var bgImage = null;
+var fgCanvas;
+var bgCanvas;
+var canvasCroma;
 
-// Evento disparado quando o usuário seleciona um arquivo
-fileInput.addEventListener('change', function() {
-  const file = fileInput.files[0]; // Pega o primeiro arquivo selecionado
-  if (file) {
-    const reader = new FileReader(); // Cria um leitor de arquivos
-    reader.onload = function(e) {
-      img.src = e.target.result;     // Define a imagem carregada como fonte do objeto "img"
+function loadForegroundImage() {
+  var file = document.getElementById("fileInput");
+  fgImage = new SimpleImage(file);
+  fgCanvas = document.getElementById("canvasFront");
+  fgImage.drawTo(fgCanvas);
+}
+
+function loadBackgroundImage() {
+  var file = document.getElementById("fileBack");
+  bgImage = new SimpleImage(file);
+  bgCanvas = document.getElementById("canvasBack");
+  bgImage.drawTo(bgCanvas);
+}
+
+function createComposite() {
+  var output = new SimpleImage(fgImage.getWidth(), fgImage.getHeight());
+  var greenThreshold = 240;
+  for (var pixel of fgImage.values()) {
+    var x = pixel.getX();
+    var y = pixel.getY();
+    if (pixel.getGreen() > greenThreshold) {
+      var bgPixel = bgImage.getPixel(x, y);
+      output.setPixel(x, y, bgPixel);
+    } else {
+      output.setPixel(x, y, pixel);
     }
-    reader.readAsDataURL(file);      // Converte o arquivo em uma URL base64 para ser exibido
   }
-});
+  return output;
+}
 
-// Quando a imagem terminar de carregar, desenha no canvas
-img.onload = function() {
-  canvas.width = img.width;          // Ajusta a largura do canvas para a largura da imagem
-  canvas.height = img.height;        // Ajusta a altura do canvas para a altura da imagem
-  ctx.drawImage(img, 0, 0);          // Desenha a imagem no canvas na posição (0,0)
-};
-
-// Evento disparado ao clicar no botão "Aplicar escala de cinza"
-document.getElementById('makeGray').addEventListener('click', function() {
-  // Captura os dados da imagem atual no canvas
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data; // Array com valores RGBA de cada pixel
-
-  // Percorre todos os pixels da imagem
-  for (let i = 0; i < data.length; i += 4) {
-    // Calcula a média dos valores de vermelho, verde e azul
-    const avg = (data[i] + data[i+1] + data[i+2]) / 3;
-
-    // Define os três canais de cor (R, G, B) como a média, criando o efeito de cinza
-    data[i] = avg;     // Vermelho
-    data[i+1] = avg;   // Verde
-    data[i+2] = avg;   // Azul
-    // data[i+3] é o canal Alpha (transparência), não alterado
+function doGreenScreen() {
+  // Verifica se as imagens foram carregadas
+  if (fgImage == null || !fgImage.complete()) {
+    alert("Foreground image not loaded");
+    return;
+  }
+  if (bgImage == null || !bgImage.complete()) {
+    alert("Background image not loaded");
+    return;
   }
 
-  // Atualiza o canvas com os novos dados da imagem modificada
-  ctx.putImageData(imageData, 0, 0);
-});
+  clearCanvas();
+
+  var finalImage = createComposite();
+  canvasCroma = document.getElementById("canvasCroma");
+  finalImage.drawTo(canvasCroma);
+}
+
+function clearCanvas() {
+  doClear(fgCanvas);
+  doClear(bgCanvas);
+  if (canvasCroma) {
+    doClear(canvasCroma);
+  }
+}
+
+function doClear(canvas) {
+  var context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}

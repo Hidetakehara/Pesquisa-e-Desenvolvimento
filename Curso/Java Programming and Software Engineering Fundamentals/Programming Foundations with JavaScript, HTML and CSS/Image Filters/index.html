@@ -3,7 +3,7 @@
 
 <head>                                                      
   <meta charset="UTF-8">                                    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos e caracteres especiais.-->
-  <title>Croma Key</title>                                  <!-- Título da aba do navegador.-->
+  <title>Image Filter</title>                               <!-- Título da aba do navegador.-->
   <link rel="stylesheet" href="style.css">                  <!-- Importa o arquivo CSS externo para estilizar a página.-->
   <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script> <!--Biblioteca da Duke Umiversity-->
 </head>
@@ -16,30 +16,26 @@
 
     <!-- Bloco 1 -->
     <div class="block">
-      <h3>Front image</h3>
-      <canvas id="canvasFront" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
-      <input type="file" id="fileInput" accept="image/*" onchange = "loadForegroundImage()">
-    </div>
-
-    <!-- Bloco 2 -->
-    <div class="block">
-      <h3>Back image</h3>
-      <canvas id="canvasBack" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
-      <input type="file" id="fileBack" accept="image/*" onchange="loadBackgroundImage()">
+      <h3>Image</h3>
+      <canvas id="ImageCanvas" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
+      <input type="file" id="fileInput" accept="image/*" onchange = "loadImage()">
     </div>
 
     <!-- Bloco Resultado -->
     <div class="block">
       <h3>Composition</h3>
-      <canvas id="canvasCroma" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
-      <button type="button" id="cromaKey" onclick = "doGreenScreen()" >Aplicar efeito de Croma Key</button>
+      <canvas id="FilterCanvas" style="max-width:400px; border:2px solid #ccc; border-radius:8px;"></canvas>
     </div>
 
   </div>
 
   <div style="flex-basis: 100%; text-align: center; margin-top: 20px;">
-    <br>
     <button type="button" id="clear" onclick="clearCanvas()">Limpa a composição</button>
+    <button type="button" id="GrayFilter" onclick="doGray()">Aplica filtro petro e branco</button>
+    <button type="button" id="RedFilter" onclick="doRed()">Aplica filtro vermelho</button>
+    <button type="button" id="NegativeFilter" onclick="doNegative()">Aplica filtro negativo</button>
+    <button type="button" id="RainbowFilter" onclick="doRainbow()">Aplica filtro arco-íris</button>
+    <button type="button" id="BlurFilter" onclick="doBlur()">Aplica filtro de desfoque</button>
   </div>
 
   <script src="script.js"></script>

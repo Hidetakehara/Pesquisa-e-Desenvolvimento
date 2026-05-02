@@ -1,0 +1,36 @@
+/* Define fonte padrão, centraliza o conteúdo, adiciona margem e cor de fundo suave. */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 40px;
+  background-color: #f5f5f5;
+}
+
+h2 {
+  color: #333;
+}
+
+/* Container flex para alinhar os blocos lado a lado */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* espaço entre os blocos */
+  margin-top: 20px;
+}
+
+/* Cada bloco (canvas + botão) em coluna */
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* espaço entre canvas e botão */
+}
+
+input[type="file"],
+input[type="button"],
+#cromaKey {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
