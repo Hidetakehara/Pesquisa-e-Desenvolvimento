@@ -1,18 +1,59 @@
-canvas{
-    width:200pt;
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    font-size: 28pt;
+    color: #0066cc;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+canvas {
+    width: 200pt;
     height: 100pt;
+    margin: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+canvas:hover {
+    transform: scale(1.05);
+}
+
+
+input[type="button"] {
+    font-size: 12pt;
+    padding: 8px 16px;
     margin: 10px;
-    border: 1px solid lightgray;
+    border: none;
+    border-radius: 6px;
+    background: #0066cc;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-input{
-    font-size: 10pt;
+input[type="button"]:hover {
+    background: #004d99;
+    transform: translateY(-2px);
 }
 
-.blueback{
-    background-color: blue;
+input[type="button"]:active {
+    transform: translateY(1px);
 }
 
-.orangeback{
-    background-color: orange;
+
+.blueback {
+    background-color: #3399ff;
+}
+
+.orangeback {
+    background-color: #ff9933;
 }
