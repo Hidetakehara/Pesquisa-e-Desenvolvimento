@@ -1,3 +1,97 @@
-    canvas {
-        border: 1px solid lightgray;
-    }
+/* style.css */
+
+/* Estilo para o título principal */
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animação suave de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fonte e alinhamento geral */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Parágrafos de controles */
+p {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+/* Inputs de texto */
+input[type="text"] {
+  width: 80px;
+  padding: 5px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Canvas */
+canvas {
+  border: 2px solid #aaa;
+  background: #fff;
+  margin-top: 20px;
+  cursor: crosshair;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Controle de cor */
+input[type="color"] {
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Slider de tamanho */
+input[type="range"] {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Botão de limpar */
+#clear {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#clear:hover {
+  background: #c0392b;
+}
+
+/* Output do tamanho do pincel */
+#sizeOutput {
+  font-weight: bold;
+  margin-left: 10px;
+  color: #2c3e50;
+}
