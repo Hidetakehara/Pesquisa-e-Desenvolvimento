@@ -1,74 +1,94 @@
-/* remover o recuo dos itens da lista */
+h1#myHeader {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #42a5f5, #7e57c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animação suave ao carregar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f9f9f9;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+}
 
 ul {
-   padding-left: 0;
+  padding-left: 0;
+  margin-top: 20px;
 }
-
-/* remover o marcador tradicional da frente dos itens da lista */
-
-/* Etapa 3 abaixo aqui */
 
 li {
-   list-style-type: none;
-   font-size: 20px;
-   background-color: #eee;
-   border: 1px solid #c3c3c3;
-   padding: 10px 0px 10px 5px;
-   width: 80%;
+  list-style-type: none;
+  font-size: 18px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px auto;
+  width: 70%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, color 0.3s;
 }
-
-
-/* Etapa 5 aqui embaixo */
-.done {
-   background-color: lightgreen;
-}
-
-.remove {
-   background-color: lightcoral;
-}
-
-/* marcar a tarefa como concluída */
-/* Passo 6 abaixo aqui */
 
 li.finished {
-   color: white;
-   background-color: lightgrey;
-   text-decoration: line-through;
+  color: #777;
+  background-color: #e0e0e0;
+  text-decoration: line-through;
+}
+
+li.important {
+  background-color: #ffe082;
+  border-left: 5px solid #ff9800;
 }
 
 input[type="text"] {
-   font-size: 18px;
-   width: 70%;
-   padding: 10px;
+  font-size: 16px;
+  width: 60%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 input[type="button"] {
-   font-size: 1.2em;
-   margin: -6px 4px 0px 0px;
+  font-size: 1em;
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#addButton {
-   padding: 10px;
-}
+.done { background-color: #81c784; }
+.done:hover { background-color: #66bb6a; }
 
-/* Etapa 10 abaixo aqui */
+.remove { background-color: #e57373; }
+.remove:hover { background-color: #ef5350; }
+
+.important { background-color: #64b5f6; }
+.important:hover { background-color: #42a5f5; }
 
 .aboutcolor {
-   background-color:yellow;
-}
-
-/* Etapa 12 aqui embaixo */
-
-#divabout {
-   font-size: 20px;
-   padding: 10px 5px 10px 5px;
-   width: 80%;
-   color:blue;
-}
-
-.important {
-  background-color: lightblue;
-}
-li.important {
-  background-color: lightblue;
+  background-color: #fff9c4;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
