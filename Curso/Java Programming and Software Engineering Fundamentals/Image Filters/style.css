@@ -1,36 +1,85 @@
-/* Define fonte padrão, centraliza o conteúdo, adiciona margem e cor de fundo suave. */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   margin: 40px;
-  background-color: #f5f5f5;
-}
-
-h2 {
+  background: linear-gradient(135deg, #f5f5f5, #eaeaea);
   color: #333;
 }
 
-/* Container flex para alinhar os blocos lado a lado */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #4CAF50; /* verde vibrante */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #4CAF50, #2196F3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  animation: fadeInDown 1s ease-out;
+}
+
+/* Animação suave de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   display: flex;
   justify-content: center;
-  gap: 40px; /* espaço entre os blocos */
+  gap: 40px;
   margin-top: 20px;
+  flex-wrap: wrap; /* responsivo */
 }
 
-/* Cada bloco (canvas + botão) em coluna */
 .block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* espaço entre canvas e botão */
+  gap: 15px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-input[type="file"],
-input[type="button"],
-#cromaKey {
+canvas {
+  max-width: 400px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 10px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+input[type="file"] {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  background: #fafafa;
+  cursor: pointer;
 }
-
