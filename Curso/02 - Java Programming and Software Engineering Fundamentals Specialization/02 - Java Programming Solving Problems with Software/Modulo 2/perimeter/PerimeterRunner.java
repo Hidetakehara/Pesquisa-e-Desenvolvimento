@@ -84,24 +84,33 @@ public class PerimeterRunner {
         return largestX;
         }
         
-    public double getLargestPerimeterMultipleFiles() {
+    public File getFileWithLargestPerimeter() {
         double largestPerim = 0.0;
+        File largestFile = null;
         DirectoryResource dr = new DirectoryResource();
+    
         for (File f : dr.selectedFiles()) {
             FileResource fr = new FileResource(f);
             Shape s = new Shape(fr);
             double currPerim = getPerimeter(s);
+        
             if (currPerim > largestPerim) {
                 largestPerim = currPerim;
+                largestFile = f; // guarda o arquivo
             }
         }
-        return largestPerim;
+        return largestFile;
     }
 
     // Método que chama o cálculo e imprime o resultado
     public void testPerimeterMultipleFiles() {
-        double largestPerim = getLargestPerimeterMultipleFiles();
-        System.out.println("Largest perimeter among selected files = " + largestPerim);
+        File largestFile = getFileWithLargestPerimeter();
+        FileResource fr = new FileResource(largestFile);
+        Shape s = new Shape(fr);
+        double largestPerim = getPerimeter(s);
+
+        System.out.println("Arquivo com maior perímetro: " + largestFile.getName());
+        System.out.println("Maior perímetro = " + largestPerim);
     }
         
 }
