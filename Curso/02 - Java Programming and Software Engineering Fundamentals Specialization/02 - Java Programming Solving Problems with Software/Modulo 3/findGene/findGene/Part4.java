@@ -9,37 +9,38 @@
 import edu.duke.*;
 
 public class Part4 {
-    
+
     public void findYouTubeLinks() {
-        URLResource resource = new URLResource("http://www.dukelearntoprogram.com/course2/data/manylinks.html");
-        
-        for (String word : resource.words()) {
-            String wordLower = word.toLowerCase();
+        URLResource resource = new URLResource("https://www.dukelearntoprogram.com/course2/data/manylinks.html");
+        String texto = "youtube.com";
+                
+        for (String line : resource.lines()) {   // <-- usar lines() em vez de words()
+            String lowerLine = line.toLowerCase();     
+            int youtubeIndex = lowerLine.indexOf(texto);
             
-            int youtubeIndex = wordLower.indexOf("youtube.com");
+            //System.out.println(line);            
+            //System.out.println(youtubeIndex);
+            //System.out.println("Estou aqui");
+            
             if (youtubeIndex != -1) {
-                // Encontrar aspas antes e depois
-                int startQuote = word.lastIndexOf("\"", youtubeIndex);
-                int endQuote = word.indexOf("\"", youtubeIndex + 1);
+                int startQuote = line.lastIndexOf("\"", youtubeIndex);
+                int endQuote = line.indexOf("\"", youtubeIndex + 1);
+                
+                //System.out.println("Estou aqui");
                 
                 if (startQuote != -1 && endQuote != -1) {
-                    String url = word.substring(startQuote + 1, endQuote);
-                    System.out.println(url);
+                    String url = line.substring(startQuote + 1, endQuote);
+                    System.out.println("Link encontrado: " + url);
+                    
+                    //System.out.println("Estou aqui");
                 }
             }
         }
     }
     
-    public void teste() {
+    public void teste1() {
         // Chama o método que já imprime os links
         findYouTubeLinks();
     }
-    
-    // Adicione este main para rodar direto no BlueJ
-    public static void main(String[] args) {
-        Part4 p = new Part4();
-        p.teste();
-    }
+
 }
-
-

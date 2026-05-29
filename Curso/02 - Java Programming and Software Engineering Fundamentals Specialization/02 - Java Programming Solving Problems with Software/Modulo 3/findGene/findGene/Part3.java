@@ -5,6 +5,7 @@
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
+
 public class Part3 {
     
     public boolean twoOccurrences (String stringa, String stringb){
@@ -44,7 +45,8 @@ public class Part3 {
         // Testando lastPart
         System.out.println("A parte do final após 'an' em 'banana' é: " + lastPart("an", "banana"));
         System.out.println("A parte do final após 'zoo' em 'forest' é: " + lastPart("zoo", "forest"));
-    }
-    
-    
+    }    
+
 }
+
+
