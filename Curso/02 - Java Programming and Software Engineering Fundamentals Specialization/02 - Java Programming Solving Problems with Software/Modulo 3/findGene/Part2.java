@@ -5,6 +5,7 @@
  * @author (seu nome) 
  * @version (número de versão ou data)
  */
+
 public class Part2 {
 
     public String findSimpleGene(String dna, String start, String stop){
@@ -54,6 +55,10 @@ public class Part2 {
         System.out.println("Gene is " + findSimpleGene(dna, startCondon, stopCondon) + "\n");
 
         dna = "ATGCGTAAGTC"; // gene inválido (não múltiplo de 3)
+        System.out.println("DNA strand is " + dna);
+        System.out.println("Gene is " + findSimpleGene(dna, startCondon, stopCondon) + "\n");
+        
+        dna = "AAATGCCCTAACTAGATTAAGAAACC"; 
         System.out.println("DNA strand is " + dna);
         System.out.println("Gene is " + findSimpleGene(dna, startCondon, stopCondon) + "\n");
     }
