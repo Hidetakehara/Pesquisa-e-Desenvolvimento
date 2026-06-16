@@ -57,4 +57,5 @@ public class Part2 {
         System.out.println("DNA strand is " + dna);
         System.out.println("Gene is " + findSimpleGene(dna, startCondon, stopCondon) + "\n");
     }
+    
 }
